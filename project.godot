@@ -19,6 +19,33 @@ config/icon="res://icon.svg"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/drag_and_drop/plugin.cfg", "res://addons/edgar.godot/plugin.cfg")
+
+[layer_names]
+
+edgar/layer_1=""
+edgar/layer_2=""
+edgar/layer_3=""
+edgar/layer_4=""
+edgar/layer_5=""
+edgar/layer_6=""
+edgar/layer_7=""
+edgar/layer_8=""
+edgar/layer_9=""
+edgar/layer_10=""
+edgar/layer_11=""
+edgar/layer_12=""
+edgar/layer_13=""
+edgar/layer_14=""
+edgar/layer_15=""
+edgar/layer_16=""
+edgar/layer_17=""
+edgar/layer_18=""
+edgar/layer_19=""
+edgar/layer_20=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
