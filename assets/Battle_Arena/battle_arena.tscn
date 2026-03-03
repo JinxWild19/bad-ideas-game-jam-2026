@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bg0iirp5vy6r4"]
+
+[ext_resource type="PackedScene" uid="uid://bosp4ml7e8gow" path="res://assets/Player/player.tscn" id="1_grsoq"]
+[ext_resource type="PackedScene" uid="uid://brjmtxlpfwl3w" path="res://assets/Father Grimwald/enemy.tscn" id="2_42f6h"]
+
+[node name="Battle_Arena" type="Node2D" unique_id=1794824956]
+
+[node name="Enemy" parent="." unique_id=794908093 node_paths=PackedStringArray("player") instance=ExtResource("2_42f6h")]
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=186693949 node_paths=PackedStringArray("enemy") instance=ExtResource("1_grsoq")]
+enemy = NodePath("../Enemy")

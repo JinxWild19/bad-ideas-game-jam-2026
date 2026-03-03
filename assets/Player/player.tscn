@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bosp4ml7e8gow"]
+
+[ext_resource type="Script" uid="uid://cliam0nnn0fio" path="res://assets/Player/player.gd" id="1_7gujn"]
+[ext_resource type="Script" uid="uid://c7q7gtaw6uye3" path="res://assets/components/Stats.gd" id="1_xg5j1"]
+[ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="2_qm3y6"]
+
+[sub_resource type="Resource" id="Resource_7gujn"]
+script = ExtResource("1_xg5j1")
+base_attack = 20.0
+base_defence = 10.0
+base_heal = 1.0
+base_max_health = 60.0
+metadata/_custom_type_script = "uid://c7q7gtaw6uye3"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xg5j1"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm3y6"]
+bg_color = Color(0, 0.8235294, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="Node2D" unique_id=186693949 node_paths=PackedStringArray("attack_button", "defend_button", "heal_button", "health_progress_bar")]
+script = ExtResource("1_7gujn")
+attack_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Attack_Button")
+defend_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Defend_Button")
+heal_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Heal_Button")
+health_progress_bar = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Health_ProgressBar")
+stats = SubResource("Resource_7gujn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1294296949]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=128899882]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1465913075]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -574.0
+offset_top = -40.0
+offset_right = 573.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer" unique_id=1092017595]
+layout_mode = 2
+alignment = 1
+
+[node name="Player_Actions" type="Panel" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer" unique_id=1138193285]
+custom_minimum_size = Vector2(1150, 100)
+layout_mode = 2
+theme = ExtResource("2_qm3y6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions" unique_id=101227327]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 19.5
+offset_top = -29.5
+offset_right = 1132.5
+offset_bottom = 29.5
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Attack_Button" type="Button" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer" unique_id=2053325779]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_qm3y6")
+text = "Attack"
+
+[node name="Defend_Button" type="Button" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer" unique_id=1397930019]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_qm3y6")
+text = "Defend"
+
+[node name="Heal_Button" type="Button" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer" unique_id=595393785]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_qm3y6")
+text = "Heal"
+
+[node name="Health_ProgressBar" type="ProgressBar" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer" unique_id=1508176310]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_xg5j1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qm3y6")
+step = 1.0
+value = 50.0
+
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Attack_Button" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Defend_Button" to="." method="_on_defend_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Heal_Button" to="." method="_on_heal_button_pressed"]

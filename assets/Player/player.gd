@@ -1,0 +1,42 @@
+extends Node2D
+
+@export_category("Buttons")
+@export var attack_button: Button
+@export var defend_button: Button
+@export var heal_button: Button
+
+@export_category("Enemy")
+@export var enemy: Node2D
+
+@export_category("Progress Bars")
+@export var health_progress_bar: ProgressBar
+
+@export_category("Components")
+@export var stats: Stats
+
+signal player_finished_turn
+
+func _ready():
+	stats.health_changed.connect(health_bar)
+
+func health_bar(health: float, max_health: float):
+	health_progress_bar.value = health
+	health_progress_bar.max_value = max_health
+	print("Player ", health," ", max_health)
+
+func _on_attack_button_pressed():
+	enemy.stats.health -= stats.current_attack
+	print("Enemy health = ", enemy.stats.health)
+	player_finished_turn.emit()
+
+
+func _on_defend_button_pressed():
+	stats.current_defence -= enemy.stats.current_attack
+	print("Player defened for %s" % stats.current_defence)
+	player_finished_turn.emit()
+
+
+func _on_heal_button_pressed():
+	stats.current_heal += stats.health
+	print("Player healed for = ", stats.current_heal)
+	player_finished_turn.emit()
