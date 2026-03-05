@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var starting_level_path: String = "" #Main Menu
+@export var starting_level_path: String = "uid://djf4dccosrv5n" #Main Menu
 @onready var level_container: Node2D = %LevelContainer
 @onready var game_control: Control = %GameControl
 @onready var current_scene: Node = null
