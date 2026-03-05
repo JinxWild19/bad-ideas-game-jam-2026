@@ -18,11 +18,16 @@ signal player_finished_turn
 
 func _ready():
 	stats.health_changed.connect(health_bar)
+	stats.health_depleated.connect(player_dead)
 
 func health_bar(health: float, max_health: float):
 	health_progress_bar.value = health
 	health_progress_bar.max_value = max_health
 	print("Player ", health," ", max_health)
+
+func player_dead():
+	TransitionTSCN.transition()
+	await TransitionTSCN.on_transition_finished
 
 func _on_attack_button_pressed():
 	enemy.stats.health -= stats.current_attack

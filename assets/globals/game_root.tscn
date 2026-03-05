@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c7n545x2daybq"]
+
+[ext_resource type="Script" uid="uid://dri01y8g4rtfc" path="res://assets/globals/game_root.gd" id="1_w57kw"]
+
+[node name="GameRoot" type="Node2D" unique_id=79305172]
+script = ExtResource("1_w57kw")
+
+[node name="LevelContainer" type="Node2D" parent="." unique_id=1334844458]
+unique_name_in_owner = true
+
+[node name="GameControl" type="Control" parent="." unique_id=133200212]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
