@@ -1,16 +1,8 @@
 [gd_scene format=3 uid="uid://bosp4ml7e8gow"]
 
 [ext_resource type="Script" uid="uid://cliam0nnn0fio" path="res://assets/Player/player.gd" id="1_7gujn"]
-[ext_resource type="Script" uid="uid://c7q7gtaw6uye3" path="res://assets/components/Stats.gd" id="1_xg5j1"]
+[ext_resource type="Resource" uid="uid://uk2i5c6187n1" path="res://assets/Player/Player_stats.tres" id="2_7gujn"]
 [ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="2_qm3y6"]
-
-[sub_resource type="Resource" id="Resource_7gujn"]
-script = ExtResource("1_xg5j1")
-base_attack = 20.0
-base_defence = 10.0
-base_heal = 1.0
-base_max_health = 60.0
-metadata/_custom_type_script = "uid://c7q7gtaw6uye3"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xg5j1"]
 bg_color = Color(1, 0, 0, 1)
@@ -42,7 +34,7 @@ attack_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Acti
 defend_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Defend_Button")
 heal_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Heal_Button")
 health_progress_bar = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Health_ProgressBar")
-stats = SubResource("Resource_7gujn")
+stats = ExtResource("2_7gujn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1294296949]
 

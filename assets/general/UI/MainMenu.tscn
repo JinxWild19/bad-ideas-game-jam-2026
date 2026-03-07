@@ -1,3 +1,67 @@
 [gd_scene format=3 uid="uid://djf4dccosrv5n"]
 
+[ext_resource type="Script" uid="uid://byffu8wox8g3q" path="res://assets/general/UI/main_menu.gd" id="1_cbqca"]
+[ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="1_pw13a"]
+[ext_resource type="Texture2D" uid="uid://blsvyquapm2jd" path="res://assets/art/Background_for_Menu.png" id="1_s5wav"]
+
 [node name="MainMenu" type="CanvasLayer" unique_id=532748670]
+script = ExtResource("1_cbqca")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=137407648]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s5wav")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=78985736]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pw13a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=268991967]
+clip_contents = false
+custom_minimum_size = Vector2(803, 212)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("1_pw13a")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[pulse][tornado]Illusory Escape"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=137882365]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1312255176]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1175229941]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1502916882]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1201915651]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

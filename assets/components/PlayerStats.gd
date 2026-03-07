@@ -1,5 +1,5 @@
 extends Resource
-class_name Stats
+class_name PlayerStats
 
 enum Buffable_Stats{
 	MAX_HEALTH,
@@ -32,15 +32,15 @@ var current_defence: float
 var current_heal: float
 var current_max_health: float
 
-var stat_buffs: Array[StatBuff]
+var stat_buffs: Array[PlayerStatBuff]
 
 var level: int:
 	get(): return floor(max(1.0, sqrt(experience / 100.0) + 0.5))
 
 var health: float = 0.0: set = _on_health_set
 
-signal health_depleated
-signal health_changed(cur_health: float, max_health: float)
+signal player_health_depleated
+signal player_health_changed(cur_health: float, max_health: float)
 
 func _init():
 	setup_stats.call_deferred()
@@ -49,11 +49,11 @@ func setup_stats():
 	recalculate_stats()
 	health = current_max_health
 
-func add_buff(buff: StatBuff):
+func add_buff(buff: PlayerStatBuff):
 	stat_buffs.append(buff)
 	recalculate_stats.call_deferred()
 
-func remove_buff(buff: StatBuff):
+func remove_buff(buff: PlayerStatBuff):
 	stat_buffs.erase(buff)
 	recalculate_stats.call_deferred()
 
@@ -63,12 +63,12 @@ func recalculate_stats():
 	for buff in stat_buffs:
 		var stat_name: String = Buffable_Stats.keys()[buff.stat].to_lower()
 		match buff.buff_type:
-			StatBuff.BuffType.ADD:
+			PlayerStatBuff.BuffType.ADD:
 				if not stat_addends.has(stat_name):
 					stat_addends[stat_name] = 0.0
 				stat_addends[stat_name] += buff.buff_amount
 			
-			StatBuff.BuffType.MULTIPLY:
+			PlayerStatBuff.BuffType.MULTIPLY:
 				if not stat_multipliers.has(stat_name):
 					stat_multipliers[stat_name] = 1.0
 				stat_multipliers[stat_name] += buff.buff_amount
@@ -93,9 +93,9 @@ func recalculate_stats():
 
 func _on_health_set(new_value: float):
 	health = clampf(new_value, 0.0, current_max_health)
-	health_changed.emit(health, current_max_health)
+	player_health_changed.emit(health, current_max_health)
 	if health <= 0.0:
-		health_depleated.emit()
+		player_health_depleated.emit()
 
 func _on_experience_set(new_value: int):
 	var old_level: int = level

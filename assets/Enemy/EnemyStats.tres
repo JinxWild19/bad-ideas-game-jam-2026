@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://dd3pxmrpduvku"]
+
+[ext_resource type="Script" uid="uid://drilaujh0ar02" path="res://assets/components/EnemyStats.gd" id="1_k5bit"]
+
+[resource]
+script = ExtResource("1_k5bit")
+base_attack = 50.0
+base_defence = 50.0
+base_heal = 20.0
+base_max_health = 500.0
+metadata/_custom_type_script = "uid://drilaujh0ar02"

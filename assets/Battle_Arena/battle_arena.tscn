@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://bg0iirp5vy6r4"]
 
+[ext_resource type="Texture2D" uid="uid://blsvyquapm2jd" path="res://assets/art/Background_for_Menu.png" id="1_42f6h"]
 [ext_resource type="PackedScene" uid="uid://bosp4ml7e8gow" path="res://assets/Player/player.tscn" id="1_grsoq"]
 [ext_resource type="PackedScene" uid="uid://brjmtxlpfwl3w" path="res://assets/Father Grimwald/enemy.tscn" id="2_42f6h"]
 
 [node name="Battle_Arena" type="Node2D" unique_id=1794824956]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1497230149]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_42f6h")
+expand_mode = 1
 
 [node name="Enemy" parent="." unique_id=794908093 node_paths=PackedStringArray("player") instance=ExtResource("2_42f6h")]
 player = NodePath("../Player")

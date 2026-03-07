@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var color_rect: ColorRect
 @export var color_animation_player: AnimationPlayer

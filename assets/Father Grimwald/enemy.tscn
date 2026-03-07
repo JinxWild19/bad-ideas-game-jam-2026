@@ -1,17 +1,9 @@
 [gd_scene format=3 uid="uid://brjmtxlpfwl3w"]
 
 [ext_resource type="Script" uid="uid://dewfsar4rhdew" path="res://assets/Father Grimwald/enemy.gd" id="1_56mtg"]
-[ext_resource type="Script" uid="uid://c7q7gtaw6uye3" path="res://assets/components/Stats.gd" id="1_tuvbi"]
+[ext_resource type="Resource" uid="uid://dd3pxmrpduvku" path="res://assets/Enemy/EnemyStats.tres" id="2_2uktm"]
 [ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="2_r7s3x"]
 [ext_resource type="Texture2D" uid="uid://6cqh7vd7ifd3" path="res://assets/art/temp/MainCharacterBase(Body).png" id="3_56mtg"]
-
-[sub_resource type="Resource" id="Resource_2uktm"]
-script = ExtResource("1_tuvbi")
-base_attack = 50.0
-base_defence = 50.0
-base_heal = 20.0
-base_max_health = 500.0
-metadata/_custom_type_script = "uid://c7q7gtaw6uye3"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56mtg"]
 bg_color = Color(1, 0, 0, 1)
@@ -39,8 +31,8 @@ corner_radius_bottom_left = 8
 
 [node name="Enemy" type="Node2D" unique_id=794908093 node_paths=PackedStringArray("health_progress_bar")]
 script = ExtResource("1_56mtg")
-health_progress_bar = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Health_ProgressBar")
-stats = SubResource("Resource_2uktm")
+health_progress_bar = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Enemy_Actions/HBoxContainer/Health_ProgressBar")
+stats = ExtResource("2_2uktm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=596690844]
 
@@ -60,12 +52,12 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="Player_Actions" type="Panel" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer" unique_id=2046565265]
+[node name="Enemy_Actions" type="Panel" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer" unique_id=2046565265]
 custom_minimum_size = Vector2(1150, 100)
 layout_mode = 2
 theme = ExtResource("2_r7s3x")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions" unique_id=613841964]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Enemy_Actions" unique_id=613841964]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -78,7 +70,7 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Health_ProgressBar" type="ProgressBar" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer" unique_id=1649554285]
+[node name="Health_ProgressBar" type="ProgressBar" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/Enemy_Actions/HBoxContainer" unique_id=1649554285]
 custom_minimum_size = Vector2(1000, 50)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_56mtg")

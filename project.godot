@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Bad Ideas Game Jam 2026"
+config/name="Illusory Escape"
+run/main_scene="uid://c7n545x2daybq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +20,9 @@ config/icon="res://icon.svg"
 Dialogic="*uid://ds2q0uclmolvu"
 TransitionTSCN="*uid://baq8a85uunwyu"
 SceneSwitcher="*uid://wwyglpehh5gc"
+LevelCore="*uid://d3yyfnhvmafd7"
+SaveLoad="*uid://5blc0blegmbb"
+Globals="*uid://bfhhlnhoiyypk"
 
 [dialogic]
 

@@ -56,8 +56,10 @@ _data = {
 &"fade_to_color": SubResource("Animation_1ovsv")
 }
 
-[node name="Transition" type="CanvasLayer" unique_id=1655101729]
+[node name="Transition" type="CanvasLayer" unique_id=1655101729 node_paths=PackedStringArray("color_rect", "color_animation_player")]
 script = ExtResource("1_ovbgy")
+color_rect = NodePath("Control/ColorRect")
+color_animation_player = NodePath("ColorChangeAnimationPlayer")
 
 [node name="Control" type="Control" parent="." unique_id=39341387]
 layout_mode = 3

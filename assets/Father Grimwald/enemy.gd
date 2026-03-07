@@ -7,14 +7,15 @@ extends Node2D
 @export var health_progress_bar: ProgressBar
 
 @export_category("Components")
-@export var stats: Stats
+@export var stats: EnemyStats
 
 signal enemy_finished_turn
 
 func _ready():
-	stats.health_changed.connect(health_bar)
+	stats.enemy_health_changed.connect(health_bar)
 	player.player_finished_turn.connect(randomly_choose_action)
-	stats.health_depleated.connect(enemy_dead)
+	stats.enemy_health_depleated.connect(enemy_dead)
+	
 
 #Fix the health not maching the stats health
 #Upon implamenting and using the player attack button the health updates.
@@ -40,7 +41,7 @@ func attack_chosen():
 
 
 func defend_chosen():
-	stats.current_defence -= player.stats.current_attack
+	player.stats.current_attack -= stats.current_defence
 	print("Enemy defened for %s" % stats.current_defence)
 	enemy_finished_turn.emit()
 

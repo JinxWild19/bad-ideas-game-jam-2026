@@ -12,13 +12,13 @@ extends Node2D
 @export var health_progress_bar: ProgressBar
 
 @export_category("Components")
-@export var stats: Stats
+@export var stats: PlayerStats
 
 signal player_finished_turn
 
 func _ready():
-	stats.health_changed.connect(health_bar)
-	stats.health_depleated.connect(player_dead)
+	stats.player_health_changed.connect(health_bar)
+	stats.player_health_depleated.connect(player_dead)
 
 func health_bar(health: float, max_health: float):
 	health_progress_bar.value = health
@@ -36,7 +36,7 @@ func _on_attack_button_pressed():
 
 
 func _on_defend_button_pressed():
-	stats.current_defence -= enemy.stats.current_attack
+	enemy.stats.current_attack -= stats.current_defence
 	print("Player defened for %s" % stats.current_defence)
 	player_finished_turn.emit()
 
