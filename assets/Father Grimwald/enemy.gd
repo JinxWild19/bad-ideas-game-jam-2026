@@ -20,8 +20,8 @@ func _ready():
 #Fix the health not maching the stats health
 #Upon implamenting and using the player attack button the health updates.
 func health_bar(health: float, max_health: float):
-	health_progress_bar.value = health
 	health_progress_bar.max_value = max_health
+	health_progress_bar.value = health
 	print("Enemy ", health," ", max_health)
 
 func enemy_dead():

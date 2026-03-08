@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://drilaujh0ar02" path="res://assets/components/EnemyStats.gd" id="1_k5bit"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_k5bit")
 base_attack = 50.0
 base_defence = 50.0

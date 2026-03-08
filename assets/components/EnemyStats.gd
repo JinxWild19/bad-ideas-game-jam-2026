@@ -20,7 +20,7 @@ const STAT_CURVES: Dictionary[Buffable_Stats, Curve]= {
 @export var base_defence: float
 @export var base_heal: float
 @export var base_max_health: float
-@export var experience: int = 0: set = _on_experience_set
+@export var experience: float = 0.0: set = _on_experience_set
 
 @export_category("Modifires")
 @export var attack_modifier: float
@@ -88,7 +88,7 @@ func recalculate_stats():
 	
 	for stat_name in stat_addends:
 		var cur_property_name: String = str("current_" + stat_name)
-		set(cur_property_name, get(cur_property_name) + stat_multipliers[stat_name])
+		set(cur_property_name, get(cur_property_name) + stat_addends[stat_name])
 
 
 func _on_health_set(new_value: float):
@@ -97,8 +97,8 @@ func _on_health_set(new_value: float):
 	if health <= 0.0:
 		enemy_health_depleated.emit()
 
-func _on_experience_set(new_value: int):
-	var old_level: int = level
+func _on_experience_set(new_value: float):
+	var old_level: float = level
 	experience = new_value
 	
 	if not old_level == level:

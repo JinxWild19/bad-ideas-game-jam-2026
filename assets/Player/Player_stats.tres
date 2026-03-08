@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://c7q7gtaw6uye3" path="res://assets/components/PlayerStats.gd" id="1_q1u36"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_q1u36")
 base_attack = 20.0
 base_defence = 10.0
 base_heal = 1.0
-base_max_health = 60.0
+base_max_health = 120.0
 metadata/_custom_type_script = "uid://c7q7gtaw6uye3"
