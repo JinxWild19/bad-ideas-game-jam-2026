@@ -47,6 +47,6 @@ func defend_chosen():
 
 
 func heal_chosen():
-	stats.current_heal += stats.health
+	stats.health += stats.current_heal
 	print("Enemy healed for = ", stats.current_heal)
 	enemy_finished_turn.emit()

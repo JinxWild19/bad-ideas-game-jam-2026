@@ -3,6 +3,26 @@
 [ext_resource type="Texture2D" uid="uid://blsvyquapm2jd" path="res://assets/art/Background_for_Menu.png" id="1_42f6h"]
 [ext_resource type="PackedScene" uid="uid://bosp4ml7e8gow" path="res://assets/Player/player.tscn" id="1_grsoq"]
 [ext_resource type="PackedScene" uid="uid://brjmtxlpfwl3w" path="res://assets/Father Grimwald/enemy.tscn" id="2_42f6h"]
+[ext_resource type="Script" uid="uid://drilaujh0ar02" path="res://assets/components/EnemyStats.gd" id="3_22p5x"]
+[ext_resource type="Script" uid="uid://c7q7gtaw6uye3" path="res://assets/components/PlayerStats.gd" id="5_kaicj"]
+
+[sub_resource type="Resource" id="Resource_qgfl3"]
+resource_local_to_scene = true
+script = ExtResource("3_22p5x")
+base_attack = 50.0
+base_defence = 50.0
+base_heal = 20.0
+base_max_health = 500.0
+metadata/_custom_type_script = "uid://drilaujh0ar02"
+
+[sub_resource type="Resource" id="Resource_t7r4g"]
+resource_local_to_scene = true
+script = ExtResource("5_kaicj")
+base_attack = 20.0
+base_defence = 10.0
+base_heal = 1.0
+base_max_health = 120.0
+metadata/_custom_type_script = "uid://c7q7gtaw6uye3"
 
 [node name="Battle_Arena" type="Node2D" unique_id=1794824956]
 
@@ -15,6 +35,8 @@ expand_mode = 1
 
 [node name="Enemy" parent="." unique_id=794908093 node_paths=PackedStringArray("player") instance=ExtResource("2_42f6h")]
 player = NodePath("../Player")
+stats = SubResource("Resource_qgfl3")
 
 [node name="Player" parent="." unique_id=186693949 node_paths=PackedStringArray("enemy") instance=ExtResource("1_grsoq")]
 enemy = NodePath("../Enemy")
+stats = SubResource("Resource_t7r4g")

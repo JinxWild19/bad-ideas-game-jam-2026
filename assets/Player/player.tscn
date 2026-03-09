@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cliam0nnn0fio" path="res://assets/Player/player.gd" id="1_7gujn"]
 [ext_resource type="Resource" uid="uid://uk2i5c6187n1" path="res://assets/Player/Player_stats.tres" id="2_7gujn"]
 [ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="2_qm3y6"]
+[ext_resource type="PackedScene" uid="uid://c2d6farjnajbc" path="res://assets/Memories/memory1.tscn" id="3_cr3b8"]
+[ext_resource type="PackedScene" uid="uid://rosnbhax2v8f" path="res://assets/Memories/memory2.tscn" id="4_kwwki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xg5j1"]
 bg_color = Color(1, 0, 0, 1)
@@ -35,6 +37,8 @@ defend_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Acti
 heal_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Heal_Button")
 health_progress_bar = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Health_ProgressBar")
 stats = ExtResource("2_7gujn")
+memory1 = ExtResource("3_cr3b8")
+memory2 = ExtResource("4_kwwki")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1294296949]
 

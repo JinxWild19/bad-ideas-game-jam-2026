@@ -7,10 +7,10 @@ extends Node2D
 @onready var current_scene_UI: Control = null
 
 func _ready():
-	SceneSwitcher.register_level_container(level_container_2D)
-	SceneSwitcher.register_game_control(GUIContainer)
-	SceneSwitcher.current_scene_register(current_scene_2D)
-	SceneSwitcher.current_scene_register(current_scene_UI)
+	SceneSwitcher.register_level_container_2D(level_container_2D)
+	SceneSwitcher.register_level_container_UI(GUIContainer)
+	SceneSwitcher.current_scene_register_2D(current_scene_2D)
+	SceneSwitcher.current_scene_register_UI(current_scene_UI)
 	TransitionTSCN.transition()
 	await TransitionTSCN.on_transition_finished
 	SceneSwitcher.load_level_UI(starting_level_path)
