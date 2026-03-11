@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://rosnbhax2v8f"]
+
+[ext_resource type="Script" uid="uid://c62h1aaqqst07" path="res://assets/Memories/watering_can.gd" id="1_v71q0"]
+[ext_resource type="Texture2D" uid="uid://copo0km234w1v" path="res://assets/art/watering can/Watering_Can_1.png" id="2_f1igb"]
+[ext_resource type="Texture2D" uid="uid://bq8vemd1rt2jw" path="res://assets/art/watering can/Watering_Can_2.png" id="3_sr35j"]
+[ext_resource type="Texture2D" uid="uid://c10akyugs0kpr" path="res://assets/art/watering can/Watering_Can_3.png" id="4_k5yhd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx3bp"]
+atlas = ExtResource("2_f1igb")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4o6l"]
+atlas = ExtResource("3_sr35j")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq0rv"]
+atlas = ExtResource("4_k5yhd")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp5ii"]
+atlas = ExtResource("3_sr35j")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa5sy"]
+atlas = ExtResource("2_f1igb")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8l38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx3bp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4o6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq0rv")
+}],
+"loop": false,
+"name": &"pour",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq0rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp5ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa5sy")
+}],
+"loop": false,
+"name": &"stop_pouring",
+"speed": 5.0
+}]
+
+[node name="WateringCan" type="Node2D" unique_id=692635028 node_paths=PackedStringArray("wateringcan_animsprite")]
+script = ExtResource("1_v71q0")
+wateringcan_animsprite = NodePath("WateringCan_AnimatedSprite")
+
+[node name="WateringCan_AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=696812175]
+sprite_frames = SubResource("SpriteFrames_m8l38")
+animation = &"pour"
