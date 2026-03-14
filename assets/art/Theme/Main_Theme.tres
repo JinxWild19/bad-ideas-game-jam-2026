@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://bs4gim4rci0ww"]
 
-[ext_resource type="FontFile" uid="uid://b4q1nof3pxr8e" path="res://assets/art/Theme/FleurDeLeah-Regular.ttf" id="1_7u6fp"]
+[sub_resource type="SystemFont" id="SystemFont_7u6fp"]
+font_names = PackedStringArray("Fantasy")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b45qg"]
 bg_color = Color(1, 1, 1, 1)
@@ -19,14 +20,17 @@ corner_radius_bottom_left = 8
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsff6"]
 bg_color = Color(0.52476466, 0.42328262, 0.41049656, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_b45qg"]
+font_names = PackedStringArray("Fantasy")
+
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 50
-Button/fonts/font = ExtResource("1_7u6fp")
+Button/fonts/font = SubResource("SystemFont_7u6fp")
 Button/styles/hover = SubResource("StyleBoxFlat_b45qg")
 Button/styles/normal = SubResource("StyleBoxFlat_7u6fp")
 Button/styles/pressed = SubResource("StyleBoxFlat_b45qg")
 Panel/styles/panel = SubResource("StyleBoxFlat_rsff6")
-RichTextLabel/fonts/normal_font = ExtResource("1_7u6fp")
+RichTextLabel/fonts/normal_font = SubResource("SystemFont_b45qg")

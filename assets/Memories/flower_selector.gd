@@ -4,11 +4,11 @@ extends Node2D
 @export var flower_selector: Node2D
 @export var flower_label: RichTextLabel
 
-var flower_keys : Array = []
+var flower_keys: Array = []
 var current_flower_index: int = 0
 var current_preview: Node2D = null
 
-var selected_flower_enum: int:
+var selected_flower_enum: int: #may not need
 	get:
 		return flower_keys[current_flower_index]
 
@@ -22,13 +22,14 @@ func update_sprite_scene():
 	var packed_scene = load(scene_path)
 	
 	if current_preview:
+		#Probably going to cause problems with the flowers
 		current_preview.queue_free()
 	
 	if packed_scene:
 		current_preview = packed_scene.instantiate()
 		flower_selector.add_child(current_preview)
 	
-	var flower_name = FlowerDatabase.Flower.keys()[current_flower_enum]
+	var flower_name = FlowerDatabase.FLOWER_NAMES[current_flower_enum]
 	flower_label.text = flower_name
 	
 

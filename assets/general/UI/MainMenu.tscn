@@ -4,6 +4,9 @@
 [ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="1_pw13a"]
 [ext_resource type="Texture2D" uid="uid://blsvyquapm2jd" path="res://assets/art/Background_for_Menu.png" id="1_s5wav"]
 
+[sub_resource type="SystemFont" id="SystemFont_cbqca"]
+font_names = PackedStringArray("Fleur De Leah")
+
 [node name="MainMenu" type="CanvasLayer" unique_id=532748670]
 script = ExtResource("1_cbqca")
 
@@ -31,6 +34,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("1_pw13a")
+theme_override_fonts/normal_font = SubResource("SystemFont_cbqca")
 theme_override_font_sizes/normal_font_size = 150
 bbcode_enabled = true
 text = "[pulse][tornado]Illusory Escape"
