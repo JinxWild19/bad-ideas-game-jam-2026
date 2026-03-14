@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c2d6farjnajbc"]
+
+[ext_resource type="Texture2D" uid="uid://blsvyquapm2jd" path="res://assets/art/Background_for_Menu.png" id="1_6n2px"]
+[ext_resource type="Script" uid="uid://ccr2vihgdh3bi" path="res://assets/Memories/memory.gd" id="1_hioal"]
+[ext_resource type="Script" uid="uid://k4bodhcdfin6" path="res://assets/Memories/flower_selector.gd" id="2_hioal"]
+[ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="2_rrak4"]
+
+[node name="Memory" type="Node2D" unique_id=692635028 node_paths=PackedStringArray("flower_selector", "flower_label")]
+script = ExtResource("1_hioal")
+flower_selector = NodePath("CanvasLayer/FlowerSelector")
+flower_label = NodePath("CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/Panel/RichTextLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1534893756]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1188306177]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rrak4")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=954244106]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6n2px")
+expand_mode = 1
+
+[node name="FlowerSelector" type="Node2D" parent="CanvasLayer" unique_id=1327858022]
+unique_name_in_owner = true
+position = Vector2(570, 441)
+script = ExtResource("2_hioal")
+
+[node name="FlowerCanvasLayer" type="CanvasLayer" parent="CanvasLayer" unique_id=744662738]
+
+[node name="Control" type="Control" parent="CanvasLayer/FlowerCanvasLayer" unique_id=1269029223]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rrak4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/FlowerCanvasLayer/Control" unique_id=908351224]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -142.0
+offset_right = 204.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer" unique_id=1854281639]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="WaterButton" type="Button" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer2" unique_id=1877146463]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Water"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer" unique_id=1800412880]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LeftButton" type="Button" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer" unique_id=586643131]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "<-"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer" unique_id=874811490]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/Panel" unique_id=976151872]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 0
+offset_left = 4.0
+offset_right = 654.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 50
+text = "Flower Place Holder Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightButton" type="Button" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer" unique_id=593769890]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "->"
