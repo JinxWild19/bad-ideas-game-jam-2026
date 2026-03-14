@@ -31,10 +31,12 @@ grow_vertical = 2
 texture = ExtResource("1_6n2px")
 expand_mode = 1
 
-[node name="FlowerSelector" type="Node2D" parent="CanvasLayer" unique_id=1327858022]
+[node name="FlowerSelector" type="Node2D" parent="CanvasLayer" unique_id=1327858022 node_paths=PackedStringArray("flower_selector", "flower_label")]
 unique_name_in_owner = true
 position = Vector2(570, 441)
 script = ExtResource("2_hioal")
+flower_selector = NodePath(".")
+flower_label = NodePath("../FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/Panel/RichTextLabel")
 
 [node name="FlowerCanvasLayer" type="CanvasLayer" parent="CanvasLayer" unique_id=744662738]
 
@@ -102,3 +104,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "->"
+
+[connection signal="pressed" from="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/LeftButton" to="CanvasLayer/FlowerSelector" method="_on_left_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/RightButton" to="CanvasLayer/FlowerSelector" method="_on_right_button_pressed"]
