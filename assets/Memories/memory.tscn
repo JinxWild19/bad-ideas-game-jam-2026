@@ -4,11 +4,13 @@
 [ext_resource type="Script" uid="uid://ccr2vihgdh3bi" path="res://assets/Memories/memory.gd" id="1_hioal"]
 [ext_resource type="Script" uid="uid://k4bodhcdfin6" path="res://assets/Memories/flower_selector.gd" id="2_hioal"]
 [ext_resource type="Theme" uid="uid://bs4gim4rci0ww" path="res://assets/art/Theme/Main_Theme.tres" id="2_rrak4"]
+[ext_resource type="PackedScene" uid="uid://rosnbhax2v8f" path="res://assets/Memories/WateringCan.tscn" id="5_vnoyt"]
 
-[node name="Memory" type="Node2D" unique_id=692635028 node_paths=PackedStringArray("flower_selector", "flower_label")]
+[node name="Memory" type="Node2D" unique_id=692635028 node_paths=PackedStringArray("flower_selector", "flower_label", "watering_can")]
 script = ExtResource("1_hioal")
 flower_selector = NodePath("CanvasLayer/FlowerSelector")
 flower_label = NodePath("CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/Panel/RichTextLabel")
+watering_can = NodePath("CanvasLayer/WateringCan")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1534893756]
 
@@ -33,10 +35,13 @@ expand_mode = 1
 
 [node name="FlowerSelector" type="Node2D" parent="CanvasLayer" unique_id=1327858022 node_paths=PackedStringArray("flower_selector", "flower_label")]
 unique_name_in_owner = true
-position = Vector2(570, 441)
+position = Vector2(570, 405)
 script = ExtResource("2_hioal")
 flower_selector = NodePath(".")
 flower_label = NodePath("../FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/Panel/RichTextLabel")
+
+[node name="WateringCan" parent="CanvasLayer" unique_id=135123068 instance=ExtResource("5_vnoyt")]
+position = Vector2(761, 137)
 
 [node name="FlowerCanvasLayer" type="CanvasLayer" parent="CanvasLayer" unique_id=744662738]
 
@@ -83,7 +88,7 @@ layout_mode = 2
 text = "<-"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer" unique_id=874811490]
-custom_minimum_size = Vector2(650, 0)
+custom_minimum_size = Vector2(650, 75)
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/Panel" unique_id=976151872]
@@ -105,5 +110,8 @@ custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "->"
 
+[connection signal="button_down" from="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer2/WaterButton" to="." method="_on_water_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer2/WaterButton" to="." method="_on_water_button_button_up"]
+[connection signal="pressed" from="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer2/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/LeftButton" to="CanvasLayer/FlowerSelector" method="_on_left_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/FlowerCanvasLayer/Control/VBoxContainer/HBoxContainer/RightButton" to="CanvasLayer/FlowerSelector" method="_on_right_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgugpg61af7qo"
-path="res://.godot/imported/PlantGrowing_NoDirt_Spritesheet.png-08c1caf04fa94593060c336921318973.ctex"
+uid="uid://0tfwl0a54ian"
+path="res://.godot/imported/dirt.png-34ac0876dd390dbe08211e42c3d7052d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/PlantGrowing_NoDirt_Spritesheet.png"
-dest_files=["res://.godot/imported/PlantGrowing_NoDirt_Spritesheet.png-08c1caf04fa94593060c336921318973.ctex"]
+source_file="res://assets/art/dirt.png"
+dest_files=["res://.godot/imported/dirt.png-34ac0876dd390dbe08211e42c3d7052d.ctex"]
 
 [params]
 

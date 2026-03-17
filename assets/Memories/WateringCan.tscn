@@ -56,10 +56,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="WateringCan" type="Node2D" unique_id=692635028 node_paths=PackedStringArray("wateringcan_animsprite")]
+[node name="WateringCan" type="Node2D" unique_id=692635028 node_paths=PackedStringArray("wateringcan_animsprite", "particles")]
 script = ExtResource("1_v71q0")
 wateringcan_animsprite = NodePath("WateringCan_AnimatedSprite")
+particles = NodePath("CPUParticles2D")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1752363990]
+position = Vector2(-110, 46)
+emission_shape = 6
+emission_ring_inner_radius = 12.19
+emission_ring_radius = 3.1
+gravity = Vector2(-150, 500)
+scale_amount_min = 8.35
+scale_amount_max = 23.06
+color = Color(4.9093364e-06, 0.75269306, 0.75269294, 0.8)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [node name="WateringCan_AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=696812175]
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_m8l38")
 animation = &"pour"

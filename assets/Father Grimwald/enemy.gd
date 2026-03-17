@@ -15,7 +15,9 @@ func _ready():
 	stats.enemy_health_changed.connect(health_bar)
 	player.player_finished_turn.connect(randomly_choose_action)
 	stats.enemy_health_depleated.connect(enemy_dead)
-	
+	var max_health: float = stats.base_max_health
+	var health: float = stats.base_max_health
+	health_bar(health, max_health)
 
 #Fix the health not maching the stats health
 #Upon implamenting and using the player attack button the health updates.

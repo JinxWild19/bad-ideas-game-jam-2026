@@ -15,35 +15,29 @@ extends Node2D
 @export var stats: PlayerStats
 
 @export_category("Memories")
-@export var memory1: PackedScene
-@export var memory2: PackedScene
+@export var memory: PackedScene
 
-@onready var memories: Array = [memory1, memory2]
-#@onready var memory_chance: Array[float] = [10, 10,]
 
 signal player_finished_turn
 
 func _ready():
 	stats.player_health_changed.connect(health_bar)
 	stats.player_health_depleated.connect(player_dead)
+	var max_health: float = stats.base_max_health
+	var health: float = stats.base_max_health
+	health_bar(health, max_health)
 
 func health_bar(health: float, max_health: float):
 	health_progress_bar.max_value = max_health
 	health_progress_bar.value = health
 	print("Player ", health," ", max_health)
 
-func memory_randomizer():
-	var random_index = randi() % memories.size()
-	var selected_memory = memories[random_index]
-	return selected_memory
+
 
 func player_dead():
-	var selected_memory = memory_randomizer()
-	var memory_chosen = selected_memory.resource_path
-	print("This is the selected memory < ", memory_chosen, " > This is where it ends.")
 	TransitionTSCN.transition()
 	await TransitionTSCN.on_transition_finished
-	SceneSwitcher.load_level_2D("%s" %memory_chosen)
+	SceneSwitcher.load_level_2D("uid://c2d6farjnajbc")
 
 
 func _on_attack_button_pressed():

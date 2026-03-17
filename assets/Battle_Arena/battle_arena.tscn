@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://drilaujh0ar02" path="res://assets/components/EnemyStats.gd" id="3_22p5x"]
 [ext_resource type="Script" uid="uid://c7q7gtaw6uye3" path="res://assets/components/PlayerStats.gd" id="5_kaicj"]
 
-[sub_resource type="Resource" id="Resource_qgfl3"]
+[sub_resource type="Resource" id="Resource_22p5x"]
 resource_local_to_scene = true
 script = ExtResource("3_22p5x")
 base_attack = 50.0
@@ -15,7 +15,7 @@ base_heal = 20.0
 base_max_health = 500.0
 metadata/_custom_type_script = "uid://drilaujh0ar02"
 
-[sub_resource type="Resource" id="Resource_t7r4g"]
+[sub_resource type="Resource" id="Resource_kaicj"]
 resource_local_to_scene = true
 script = ExtResource("5_kaicj")
 base_attack = 20.0
@@ -35,8 +35,8 @@ expand_mode = 1
 
 [node name="Enemy" parent="." unique_id=794908093 node_paths=PackedStringArray("player") instance=ExtResource("2_42f6h")]
 player = NodePath("../Player")
-stats = SubResource("Resource_qgfl3")
+stats = SubResource("Resource_22p5x")
 
 [node name="Player" parent="." unique_id=186693949 node_paths=PackedStringArray("enemy") instance=ExtResource("1_grsoq")]
 enemy = NodePath("../Enemy")
-stats = SubResource("Resource_t7r4g")
+stats = SubResource("Resource_kaicj")
