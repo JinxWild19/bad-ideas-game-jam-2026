@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bdx5p2lrpaeej"]
 
+[ext_resource type="Script" uid="uid://du2dv68yewps5" path="res://assets/Memories/Flowers/frostine.gd" id="1_8cmj6"]
 [ext_resource type="Texture2D" uid="uid://byrdidilbba4y" path="res://assets/art/Dirt_Spritesheet.png" id="1_gar6m"]
 [ext_resource type="Texture2D" uid="uid://cse3uax1t0l7o" path="res://assets/art/PlantGrowing_Dirt_Spritesheet.png" id="2_8cmj6"]
 [ext_resource type="Texture2D" uid="uid://bgykfy52578cc" path="res://assets/art/Memory_Flower_Memory_plucked.png" id="3_vxwae"]
@@ -131,6 +132,7 @@ animations = [{
 }]
 
 [node name="Frostine" type="Node2D" unique_id=537706722]
+script = ExtResource("1_8cmj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=921426016]
 sprite_frames = SubResource("SpriteFrames_is8xi")
