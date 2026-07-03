@@ -15,7 +15,7 @@ extends Node2D
 @export var stats: PlayerStats
 
 @export_category("Memories")
-@export var memory: PackedScene
+@export var memory: Array[PackedScene] = []
 
 
 signal player_finished_turn
@@ -41,8 +41,9 @@ func player_dead():
 
 
 func _on_attack_button_pressed():
-	enemy.stats.health -= stats.current_attack
-	print("Enemy health = ", enemy.stats.health)
+	#absf makes sure that the attack number is positive not negative.
+	enemy.stats.health -= absf(stats.current_attack)
+	print("Player attacked for ", absf(stats.current_attack), " Enemy health = ", enemy.stats.health)
 	player_finished_turn.emit()
 
 

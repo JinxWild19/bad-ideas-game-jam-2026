@@ -1,15 +1,16 @@
 extends Node2D
 class_name Flowers
 
-@export_category("Watering Abbilities")
-@export var watering = get_parent().get_parent().get_node("Memory")
+@export var growth_stage_timer: float = 10.0
+
+@onready var water = get_parent().get_node("/root/GameRoot/LevelContainer/Memory")
 
 func _ready():
-	watering.watering.connect(grow)
-	watering.stopped_watering.connect(grow)
+	water.watering.connect(grow)
+	water.stopped_watering.connect(grow)
 
 func grow():
-	if await watering._on_water_button_button_down() == true:
+	if await water._on_water_button_button_down() == true:
 		print("Watering")
-	elif await watering._on_water_button_button_up() == true:
+	elif await water._on_water_button_button_up() == true:
 		print("Stopped watering")

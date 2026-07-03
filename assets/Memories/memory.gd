@@ -6,6 +6,9 @@ class_name Memory_Flowers
 @export var flower_label: RichTextLabel
 @export var watering_can: Node2D
 
+@onready var water_script = preload("uid://culs8tm48oh4x")
+
+
 signal watering
 signal stopped_watering
 

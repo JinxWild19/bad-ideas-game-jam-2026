@@ -35,6 +35,7 @@ defend_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Acti
 heal_button = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Heal_Button")
 health_progress_bar = NodePath("CanvasLayer/UI/VBoxContainer/HBoxContainer/Player_Actions/HBoxContainer/Health_ProgressBar")
 stats = ExtResource("2_7gujn")
+memory = Array[PackedScene]([null, null, null, null, null, null])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1294296949]
 
